@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthUserController;
+
 
 Route::get('/', function () {
     return view('website.website');
@@ -25,3 +27,7 @@ Route::get('/checkout', function () {
 Route::get('/contact', function () {
     return view('website.contact');
 })->name('contact');
+
+
+Route::post('/adduser', [AuthUserController::class, 'adduser'])->name('user.register');
+Route::post('/userlogin', [AuthUserController::class, 'loginuser'])->name('user.login');

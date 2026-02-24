@@ -1,0 +1,149 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #dce0f0, #f2f5fc);
+}
+
+/* Login Container */
+.login-container{
+    width:90%;
+    max-width:400px;
+    background:#ffffff;
+    padding:40px 30px;
+    border-radius:10px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+    animation: slideUp 1s ease;
+}
+
+/* Animation */
+@keyframes slideUp{
+    from{
+        transform:translateY(50px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.login-container h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:38px;
+    font-weight:1000;
+    letter-spacing:2px;
+    position:relative;
+    
+    /* Gradient Text */
+    background: linear-gradient(90deg, #1a2035, gray);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animated Underline */
+.login-container h1::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-8px;
+    width:0%;
+    height:3px;
+    background:#1a2035;
+    transition:0.4s ease;
+    transform:translateX(-50%);
+}
+
+.login-container:hover h1::after{
+    width:60%;
+}
+
+/* Input Box */
+.input-group{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px 10px;
+    border:none;
+    border-bottom:2px solid gray;
+    outline:none;
+    font-size:16px;
+    background:transparent;
+    transition:0.3s;
+}
+
+.input-group label{
+    position:absolute;
+    left:10px;
+    top:12px;
+    color:gray;
+    font-size:14px;
+    transition:0.3s;
+    pointer-events:none;
+}
+
+/* Floating Effect */
+.input-group input:focus,
+.input-group input:valid{
+    border-color:#1a2035;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+    top:-10px;
+    font-size:12px;
+    color:#1a2035;
+}
+
+/* Button */
+.login-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#1a2035;
+    color:white;
+    font-size:20px;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#2c344f;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Extra Text */
+.extra{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    color:gray;
+}
+
+.extra a{
+    color:#1a2035;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* Responsive */
+@media(max-width:480px){
+    .login-container{
+        padding:30px 20px;
+    }
+}
