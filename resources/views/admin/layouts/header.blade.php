@@ -83,7 +83,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="{{asset('backend/assets/'. Auth::guard('admin')->user()->profile)}}"
+                        src="{{asset('admin-profile-setting/'.(Auth::guard('admin')->user()->profile ?? ''))}}"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -99,7 +99,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="{{asset('backend/assets/'. Auth::guard('admin')->user()->profile)}}"
+                              src="{{asset('admin-profile-setting/'.(Auth::guard('admin')->user()->profile ?? ''))}}"
                               alt="image profile"
                               class="avatar-img rounded"
                             />

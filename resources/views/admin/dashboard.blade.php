@@ -12,7 +12,7 @@
             >
               <div>
                 <h3 class="fw-bold mb-3">Dashboard</h3>
-                <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
+                
               </div>
               <div class="ms-md-auto py-2 py-md-0">
                 <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
@@ -33,8 +33,8 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Visitors</p>
-                          <h4 class="card-title">1,294</h4>
+                          <p class="card-category">Total Users</p>
+                          <h4 class="card-title">{{$user}}</h4>
                         </div>
                       </div>
                     </div>
@@ -54,8 +54,8 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Subscribers</p>
-                          <h4 class="card-title">1303</h4>
+                          <p class="card-category">Total Active User</p>
+                          <h4 class="card-title">{{$activeuser}}</h4>
                         </div>
                       </div>
                     </div>
@@ -75,8 +75,8 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Sales</p>
-                          <h4 class="card-title">$ 1,345</h4>
+                          <p class="card-category">Total Unactive User</p>
+                          <h4 class="card-title">{{$unactiveuser}}</h4>
                         </div>
                       </div>
                     </div>
@@ -96,8 +96,8 @@
                       </div>
                       <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                          <p class="card-category">Order</p>
-                          <h4 class="card-title">576</h4>
+                          <p class="card-category">Total Order</p>
+                          <h4 class="card-title">{{$order}}</h4>
                         </div>
                       </div>
                     </div>
@@ -353,117 +353,27 @@
                       </div>
                     </div>
                     <div class="card-list py-4">
+                      @foreach($userdata as $data)
                       <div class="item-list">
                         <div class="avatar">
                           <img
-                            src="assets/img/jm_denis.jpg"
+                            src="{{asset('storage/profile/'.$data->profile)}}"
                             alt="..."
                             class="avatar-img rounded-circle"
                           />
                         </div>
                         <div class="info-user ms-3">
-                          <div class="username">Jimmy Denis</div>
-                          <div class="status">Graphic Designer</div>
+                          <div class="username">{{$data->name}}</div>
+                          <div class="status">{{$data->email}}</div>
                         </div>
-                        <button class="btn btn-icon btn-link op-8 me-1">
-                          <i class="far fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-icon btn-link btn-danger op-8">
-                          <i class="fas fa-ban"></i>
-                        </button>
+                        <form action="{{ route('block.user',$data->id) }}" method="post" style="display:inline;">
+                            @csrf
+                            <button class="btn btn-icon btn-link btn-danger op-8">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </form>
                       </div>
-                      <div class="item-list">
-                        <div class="avatar">
-                          <span
-                            class="avatar-title rounded-circle border border-white"
-                            >CF</span
-                          >
-                        </div>
-                        <div class="info-user ms-3">
-                          <div class="username">Chandra Felix</div>
-                          <div class="status">Sales Promotion</div>
-                        </div>
-                        <button class="btn btn-icon btn-link op-8 me-1">
-                          <i class="far fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-icon btn-link btn-danger op-8">
-                          <i class="fas fa-ban"></i>
-                        </button>
-                      </div>
-                      <div class="item-list">
-                        <div class="avatar">
-                          <img
-                            src="assets/img/talha.jpg"
-                            alt="..."
-                            class="avatar-img rounded-circle"
-                          />
-                        </div>
-                        <div class="info-user ms-3">
-                          <div class="username">Talha</div>
-                          <div class="status">Front End Designer</div>
-                        </div>
-                        <button class="btn btn-icon btn-link op-8 me-1">
-                          <i class="far fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-icon btn-link btn-danger op-8">
-                          <i class="fas fa-ban"></i>
-                        </button>
-                      </div>
-                      <div class="item-list">
-                        <div class="avatar">
-                          <img
-                            src="assets/img/chadengle.jpg"
-                            alt="..."
-                            class="avatar-img rounded-circle"
-                          />
-                        </div>
-                        <div class="info-user ms-3">
-                          <div class="username">Chad</div>
-                          <div class="status">CEO Zeleaf</div>
-                        </div>
-                        <button class="btn btn-icon btn-link op-8 me-1">
-                          <i class="far fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-icon btn-link btn-danger op-8">
-                          <i class="fas fa-ban"></i>
-                        </button>
-                      </div>
-                      <div class="item-list">
-                        <div class="avatar">
-                          <span
-                            class="avatar-title rounded-circle border border-white bg-primary"
-                            >H</span
-                          >
-                        </div>
-                        <div class="info-user ms-3">
-                          <div class="username">Hizrian</div>
-                          <div class="status">Web Designer</div>
-                        </div>
-                        <button class="btn btn-icon btn-link op-8 me-1">
-                          <i class="far fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-icon btn-link btn-danger op-8">
-                          <i class="fas fa-ban"></i>
-                        </button>
-                      </div>
-                      <div class="item-list">
-                        <div class="avatar">
-                          <span
-                            class="avatar-title rounded-circle border border-white bg-secondary"
-                            >F</span
-                          >
-                        </div>
-                        <div class="info-user ms-3">
-                          <div class="username">Farrah</div>
-                          <div class="status">Marketing</div>
-                        </div>
-                        <button class="btn btn-icon btn-link op-8 me-1">
-                          <i class="far fa-envelope"></i>
-                        </button>
-                        <button class="btn btn-icon btn-link btn-danger op-8">
-                          <i class="fas fa-ban"></i>
-                        </button>
-                      </div>
+                      @endforeach
                     </div>
                   </div>
                 </div>
@@ -505,13 +415,14 @@
                       <table class="table align-items-center mb-0">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col">Payment Number</th>
-                            <th scope="col" class="text-end">Date & Time</th>
+                            <th scope="col">Transaction ID</th>
+                            <th scope="col" class="text-end">Payment Mode</th>
                             <th scope="col" class="text-end">Amount</th>
                             <th scope="col" class="text-end">Status</th>
                           </tr>
                         </thead>
                         <tbody>
+                          @foreach($transaction as $item)
                           <tr>
                             <th scope="row">
                               <button
@@ -519,104 +430,15 @@
                               >
                                 <i class="fa fa-check"></i>
                               </button>
-                              Payment from #10231
+                              {{$item->transactionId}}
                             </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
+                            <td class="text-end"> {{$item->payment_mode}}</td>
+                            <td class="text-end"> {{$item->amount}}</td>
                             <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
+                              <span class="badge badge-success"> {{$item->status}}</span>
                             </td>
                           </tr>
-                          <tr>
-                            <th scope="row">
-                              <button
-                                class="btn btn-icon btn-round btn-success btn-sm me-2"
-                              >
-                                <i class="fa fa-check"></i>
-                              </button>
-                              Payment from #10231
-                            </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
-                            <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <button
-                                class="btn btn-icon btn-round btn-success btn-sm me-2"
-                              >
-                                <i class="fa fa-check"></i>
-                              </button>
-                              Payment from #10231
-                            </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
-                            <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <button
-                                class="btn btn-icon btn-round btn-success btn-sm me-2"
-                              >
-                                <i class="fa fa-check"></i>
-                              </button>
-                              Payment from #10231
-                            </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
-                            <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <button
-                                class="btn btn-icon btn-round btn-success btn-sm me-2"
-                              >
-                                <i class="fa fa-check"></i>
-                              </button>
-                              Payment from #10231
-                            </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
-                            <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <button
-                                class="btn btn-icon btn-round btn-success btn-sm me-2"
-                              >
-                                <i class="fa fa-check"></i>
-                              </button>
-                              Payment from #10231
-                            </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
-                            <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <button
-                                class="btn btn-icon btn-round btn-success btn-sm me-2"
-                              >
-                                <i class="fa fa-check"></i>
-                              </button>
-                              Payment from #10231
-                            </th>
-                            <td class="text-end">Mar 19, 2020, 2.45pm</td>
-                            <td class="text-end">$250.00</td>
-                            <td class="text-end">
-                              <span class="badge badge-success">Completed</span>
-                            </td>
-                          </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
@@ -624,8 +446,136 @@
                 </div>
               </div>
             </div>
+
+                 <div class="card-body">
+                    <table class="table table-head-bg-primary mt-0">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Order ID</th>
+                          <th scope="col">Address</th>
+                          <th scope="col">City</th>
+                          <th scope="col">Country</th>
+                          <th scope="col">Pincode</th>
+                          <th scope="col">Mobile</th>
+                          <th scope="col">Product Details</th>
+                          <th scope="col">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($orderlist as $data)
+                        <tr>
+                            <td>{{$data->id}}</td>
+                            <td>{{$data->user->name ?? ''}}</td>
+                            <td>{{$data->orderId}}</td>
+
+                            <td>{{$data->billingAddress->address ?? ''}}</td>
+                            <td>{{$data->billingAddress->city ?? ''}}</td>
+                            <td>{{$data->billingAddress->country ?? ''}}</td>
+                            <td>{{$data->billingAddress->pincode ?? ''}}</td>
+                            <td>{{$data->billingAddress->mobile ?? ''}}</td>
+                            <!-- <td>{{$data->product_detail}}</td> -->
+                            <td>
+                              <!-- product details modal button -->
+                              <button 
+                                  type="button"
+                                  class="btn btn-primary"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#exampleModal{{$data->id}}"
+                              >
+                                  <i class="fas fa-eye fs-4"></i>
+                              </button>
+                          </td>
+                            <td class="text-end">
+                              <span class="badge badge-success p-2 fs-6"> {{$data->status}}</span>
+                            </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>  
           </div>
-        </div>
+
+          @foreach($orderlist as $data)
+
+            @php
+            $products = json_decode($data->product_detail, true) ?? [];
+            @endphp
+
+            <div 
+                class="modal fade"
+                id="exampleModal{{$data->id}}"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel{{$data->id}}"
+                aria-hidden="true"
+            >
+
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel{{$data->id}}">
+                                Order ID : {{$data->orderId}}
+                            </h5>
+
+                            <button 
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <table class="table table-bordered">
+
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Qty</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach($products as $product)
+
+                                    <tr>
+                                        <td>{{$product['product_name']}}</td>
+                                        <td>{{$product['price']}}</td>
+                                        <td>{{$product['quantity']}}</td>
+                                    </tr>
+
+                                    @endforeach
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button 
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+          @endforeach
+       </div>
 </div>
 
 @endsection

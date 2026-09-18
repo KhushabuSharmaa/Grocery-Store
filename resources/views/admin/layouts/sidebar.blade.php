@@ -74,7 +74,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('product.list')}}">
                         <span class="sub-item">Product List</span>
                       </a>
                     </li>
@@ -96,7 +96,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="tables/tables.html">
+                      <a href="{{route('category.list')}}">
                         <span class="sub-item">Category List</span>
                       </a>
                     </li>
@@ -113,22 +113,22 @@
                 <div class="collapse" id="orders">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('allOrder')}}">
                         <span class="sub-item">All List</span>
                       </a>
                     </li>
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('pending.order')}}">
                         <span class="sub-item">Pending Order</span>
                       </a>
                     </li>
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('completed.order')}}">
                         <span class="sub-item">Completed Order</span>
                       </a>
                     </li>
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('cancelled.order')}}">
                         <span class="sub-item">Cancel Order</span>
                       </a>
                     </li>
@@ -145,7 +145,7 @@
                 <div class="collapse" id="payment">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('admin.transaction')}}">
                         <span class="sub-item">Transaction</span>
                       </a>
                     </li>
@@ -162,18 +162,36 @@
                 <div class="collapse" id="setting">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="tables/tables.html">
+                      <a href="{{route('Admin.profile.setting')}}">
                         <span class="sub-item">Profile Setting</span>
                       </a>
                     </li>
                     <li>
-                      <a href="tables/datatables.html">
+                      <a href="{{route('website.setting')}}">
                         <span class="sub-item">Website Setting</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </li>
+
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#Website_Enquiry">
+                  <i class="fas icon-settings"></i>
+                  <p>Website Enquiry</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="Website_Enquiry">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{route('website.enquiry')}}">
+                        <span class="sub-item">Enquiry List</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
 
             </ul>
           </div>

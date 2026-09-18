@@ -38,6 +38,8 @@
                           <th scope="col">Stock</th>
                           <th scope="col">Expiry Date</th>
                           <th scope="col">Image</th>
+                          <th scope="col">Short description</th>
+                          <th scope="col">Long description</th>
                           <th scope="col">Status</th>
                           <th scope="col">Action</th>
                         </tr>
@@ -46,21 +48,23 @@
                         @foreach($productdata as $data)
                         <tr>
                           <td>{{$data->id}}</td>
-                          <td>{{$data->category}}</td>
-                           <td>{{$data->product_name}}</td>
-                            <td>{{$data->mrp}}</td>
-                             <td>{{$data->selling_price}}</td>
-                              <td>{{$data->unit}}</td>
-                               <td>{{$data->stock}}</td>
-                                <td>{{$data->expiry_date}}</td>
-                                <td>
-                                  <img src="{{$data->image}}" alt="" style="height:40px; width:100px; border:1px solid secondary">
-                                </td>
-                                <td>{{$data->status}}</td>
+                          <td>{{ $data->category->categoryname ?? '' }}</td>
+                          <td>{{$data->product_name}}</td>
+                          <td>{{$data->mrp}}</td>
+                          <td>{{$data->selling_price}}</td>
+                          <td>{{$data->unit}}</td>
+                          <td>{{$data->stock}}</td>
+                          <td>{{$data->expiry_date}}</td>
+                          <td>
+                            <img src="{{ asset('storage/image/' . $data->image) }}" alt="" style="height:40px; width:100px; border:1px solid secondary">
+                          </td>
+                          <td>{{$data->short_description}}</td>
+                          <td>{{$data->long_description}}</td>
+                          <td>{{$data->status}}</td>
+
                           <td class="d-flex gap-2 justify-content-center align-items-center">
-                            <a href="" class="btn btn-success pt-1 pb-1 ps-3 pe-3">Edit</a>
-                            <a href="" class="btn btn-danger pt-1 pb-1 ps-2 pe-2">Delete</a>
-                            
+                            <a href="{{route('edit.product', $data->id)}}" class="btn btn-success pt-1 pb-1 ps-3 pe-3">Edit</a>
+                            <a href="{{route('delete.product', $data->id)}}" class="btn btn-danger pt-1 pb-1 ps-2 pe-2">Delete</a>    
                           </td>
                         </tr>
                         @endforeach

@@ -277,6 +277,8 @@
 
 
 /*** Fruits Start ***/
+
+/* Active Tab */
 .fruite .tab-class .nav-item a.active {
     background: var(--bs-secondary) !important;
 }
@@ -285,6 +287,7 @@
     color: var(--bs-white) !important; 
 }
 
+/* Category */
 .fruite .fruite-categorie .fruite-name {
     line-height: 40px;
 }
@@ -297,59 +300,168 @@
     color: var(--bs-secondary);
 }
 
-.fruite .fruite-item {
-    height: 100%;
-    transition: 0.5s;
-}
-.fruite .fruite-item:hover {
-    box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
-}
 
-.fruite .fruite-item .fruite-img {
+/* ============================= */
+/*        PRODUCT CARD FIX       */
+/* ============================= */
+
+.fruite .fruite-item {
+    height: 420px; /* same card height */
+    border-radius: 10px;
     overflow: hidden;
     transition: 0.5s;
-    border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: column;
 }
 
+.fruite .fruite-item:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Image Section */
+.fruite .fruite-item .first-item-box{
+    height: 200px;
+}
+
+
+/* Image Container */
+.fruite .fruite-item .fruite-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* Product Image */
 .fruite .fruite-item .fruite-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: 0.5s;
 }
 
+
+/* Hover Zoom */
 .fruite .fruite-item .fruite-img img:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
+
+
+/* Content Box */
+.fruite .fruite-item .second-item-box{
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Product Title */
+.fruite .fruite-item h4{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+
+/* Description Limit (3 line) */
+.fruite .fruite-item p{
+    font-size: 14px;
+    color: #555;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+
+/* Price */
+.fruite .fruite-item .price{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+/* Button */
+.fruite .fruite-item .btn{
+    font-size: 14px;
+}
+
 /*** Fruits End ***/
 
 
 /*** vesitable Start ***/
+
+/* Card */
 .vesitable .vesitable-item {
-    height: 100%;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     transition: 0.5s;
 }
 
 .vesitable .vesitable-item:hover {
-    box-shadow: 0 0 55px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 40px rgba(0,0,0,0.25);
 }
 
+
+/* Image Box */
 .vesitable .vesitable-item .vesitable-img {
+    height: 200px;
     overflow: hidden;
-    transition: 0.5s;
-    border-radius: 10px 10px 0 0;
 }
 
+
+/* Image */
 .vesitable .vesitable-item .vesitable-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: 0.5s;
 }
 
 .vesitable .vesitable-item .vesitable-img img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
+
+/* Content */
+.vesitable .vesitable-item .p-4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Title */
+.vesitable .vesitable-item h4{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* Description limit */
+.vesitable .vesitable-item p{
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+/* Owl Carousel spacing */
 .vesitable .owl-stage {
     margin: 50px 0;
     position: relative;
 }
 
+
+/* Carousel buttons */
 .vesitable .owl-nav .owl-prev {
     position: absolute;
     top: -8px;
@@ -359,7 +471,6 @@
     border: 1px solid var(--bs-secondary);
     border-radius: 20px;
     transition: 0.5s;
-
 }
 
 .vesitable .owl-nav .owl-prev:hover {
@@ -382,6 +493,7 @@
     background: var(--bs-secondary);
     color: var(--bs-white);
 }
+
 /*** vesitable End ***/
 
 
@@ -495,3 +607,65 @@
 }
 /*** Footer End ***/
 
+/* ============================= */
+/*  BESTSELLER PRODUCT FINAL FIX */
+/* ============================= */
+
+/* LEFT BIG CARD */
+.bestseller-card{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* image */
+.bestseller-card img{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* content */
+.bestseller-card .product-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+}
+
+/* title limit */
+.product-title{
+    font-size: 16px;
+    font-weight: 600;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+/* RIGHT SMALL CARD */
+
+.bestseller-grid-card{
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bestseller-grid-card img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.pagination{
+    display:flex;
+    justify-content:center;
+}
+.pagination .page-link{
+    border-radius:50px;
+    margin:0 5px;
+}

@@ -16,16 +16,16 @@ class AuthUserController extends Controller
      'email' => $request->email,
      'password' => Hash::make($request->password),
     ]);
-    return redirect('/')->with('success', 'User Login Successfully');
+    return redirect()->route('home')->with('success', 'User Register Successfully');
    }
 
     public function loginuser(Request $request){
     if(Auth::attempt([
-        'email' => $request->email,
+     'email' => $request->email,
      'password' => $request->password,
     ])){
         $request->session()->regenerate();
-        return redirect('/')->with('success', 'User Register Successfully');
+        return redirect()->route('home')->with('success', 'User Login Successfully');
     }
 
     return back()->with('error','Invalid Email or password');

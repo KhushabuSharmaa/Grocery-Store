@@ -29,7 +29,7 @@
                           <select class="form-select form-control mb-2" id="defaultSelect" name="category">
                             <option>Select Category</option>
                             @foreach($data as $dt)
-                            <option>{{$dt->categoryname}}</option>
+                            <option value="{{$dt->id}}">{{$dt->categoryname}}</option>
                             @endforeach
                           </select>
     
@@ -50,20 +50,27 @@
                             <option>Litter</option>
                             <option>Piece</option>
                           </select>
+
+                          <label >Stock</label>
+                          <input type="text" class="form-control mb-2 " name="stock"/>
+
                         </div>
                       </div>
 
                       <div class="col-md-6 col-lg-4 ">
                         <div class="form-group">
 
-                          <label >Stock</label>
-                          <input type="text" class="form-control mb-2 " name="stock"/>
-
                           <label >Expiry Date</label>
-                          <input type="datetime-local" class="form-control mb-2 "name="expiry_date" />
+                          <input type="date" class="form-control mb-2 "name="expiry_date" />
                           
                           <label for="file">Image</label>
                           <input type="file" class="form-control mb-2 " name="image" />
+
+                          <label>Short Description</label>
+                          <input type="text" class="form-control mb-2 " name="short_description" />
+
+                          <label>Long Description</label>
+                          <input type="text" class="form-control mb-2 " name="long_description" />
       
                           <label for="defaultSelect">Status</label>
                           <select class="form-select form-control mb-2" id="defaultSelect" name="status">

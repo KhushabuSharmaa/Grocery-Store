@@ -34,10 +34,20 @@
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <form action="" class="">
-                                <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name">
-                                <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Enter Your Email">
-                                <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="10" placeholder="Your Message"></textarea>
+                            <form action="{{route('user.inquiry')}}" class="" method="post">
+                                @csrf
+                                <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name" name="name" value="{{old('name')}}">
+                                @error('name')
+                                 <span class="text-danger">{{$message}}</span>
+                                @enderror
+                                <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Enter Your Email" name="email" value="{{old('email')}}">
+                                @error('email')
+                                 <span class="text-danger">{{$message}}</span>
+                                @enderror
+                                <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="10" placeholder="Your Message" name="msg" value="{{old('msg')}}"></textarea>
+                                @error('msg')
+                                 <span class="text-danger">{{$message}}</span>
+                                @enderror
                                 <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
                             </form>
                         </div>
